@@ -23,7 +23,11 @@ export default function ExpenseForm() {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
-        const amountIsField = ['amount'].includes(name)
+        const isAmountField = ['amount'].includes(name)
+        setExpense({
+            ...expense,
+            [name] : isAmountField ? +value : value
+        })
     }
 
     return (
