@@ -1,6 +1,6 @@
 import { categories } from "../data/categories";
 import type { DraftExpense, Value } from "../types";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import DatePicker from 'react-date-picker';
 import 'react-calendar/dist/Calendar.css'
 import 'react-date-picker/dist/DatePicker.css'
@@ -21,6 +21,11 @@ export default function ExpenseForm() {
         })
     }
 
+    const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        const { name, value } = e.target
+        const amountIsField = ['amount'].includes(name)
+    }
+
     return (
         <form className="space-y-5">
             <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">Nuevo gasto</legend>
@@ -36,7 +41,7 @@ export default function ExpenseForm() {
                     placeholder="Añade el nombre del gasto: "
                     className="bg-slate-100 p-2"
                     name="expenseName"
-                    value={expense.expenseName}
+                    onChange={handleChange}
                 />
             </div>
 
@@ -51,7 +56,7 @@ export default function ExpenseForm() {
                     placeholder="Ingrese la cantidad del gasto ej. 1500: "
                     className="bg-slate-100 p-2"
                     name="amount"
-                    value={expense.amount}
+                    onChange={handleChange}
                 />
             </div>
 
@@ -65,7 +70,7 @@ export default function ExpenseForm() {
                     id="category"
                     className="bg-slate-100 p-2"
                     name="category"
-                    value={expense.category}
+                    onChange={handleChange}
                 >
                     <option value="">-- Seleccione --</option>
                     {categories.map(category => (
