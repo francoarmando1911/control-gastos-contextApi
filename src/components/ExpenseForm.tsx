@@ -1,5 +1,5 @@
 import { categories } from "../data/categories";
-
+import DatePicker from 'react-date-picker';
 
 export default function ExpenseForm() {
     return (
@@ -56,6 +56,22 @@ export default function ExpenseForm() {
                     ))}
                 </select>
             </div>
+
+            <div className="flex flex-col gap-2">
+                <label
+                    htmlFor="amount"
+                    className="text-xl"
+                >Fecha gasto:</label>
+                <DatePicker
+                    className="bg-slate-100 p-2 border-0"
+                />
+            </div>
+
+            <input
+                type="submit"
+                className="bg-blue-600 cursor-pointer w-full text-white uppercase font-bold rounded-lg"
+                value={'Registrar gasto'}
+            />
         </form>
     )
 }
