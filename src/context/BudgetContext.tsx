@@ -1,4 +1,4 @@
-import { useReducer, createContext, Dispatch } from "react"
+import { useReducer, createContext, Dispatch, ReactNode } from "react"
 import { BudgetActions, budgetReducer, BudgetState, initialState } from "../reducers/budget-reducer"
 
 type BudgetContextProps = {
@@ -6,9 +6,13 @@ type BudgetContextProps = {
     dispatch : Dispatch<BudgetActions>
 }
 
+type BudgetProvderProps = {
+    children : ReactNode
+}
+
 export const BudgetContext = createContext<BudgetContextProps>(null!)
 
-export const BudgetProvider = ({children}) => {
+export const BudgetProvider = ({children}: BudgetProvderProps) => {
 
     const [state, dispatch] = useReducer(budgetReducer, initialState)
 
