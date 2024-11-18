@@ -1,5 +1,5 @@
 import { categories } from "../data/categories";
-import type { DraftExpense } from "../types";
+import type { DraftExpense, Value } from "../types";
 import { useState } from "react";
 import DatePicker from 'react-date-picker';
 import 'react-calendar/dist/Calendar.css'
@@ -13,6 +13,13 @@ export default function ExpenseForm() {
         category: '',
         date: new Date()
     })
+
+    const handleChangeDate = (value : Value) => {
+        setExpense({
+            ...expense,
+            date: value
+        })
+    }
 
     return (
         <form className="space-y-5">
@@ -79,6 +86,7 @@ export default function ExpenseForm() {
                 <DatePicker
                     className="bg-slate-100 p-2 border-0"
                     value={expense.date}
+                    onChange={handleChangeDate}
                 />
             </div>
 
