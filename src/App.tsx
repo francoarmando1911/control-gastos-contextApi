@@ -5,7 +5,7 @@ import { useMemo } from "react"
 
 function App() {
 
-  const {state} = useBudget()
+  const {state, dispatch} = useBudget()
   //console.log(state.budget)
 
   const isValidBudget = useMemo(() => state.budget > 0, [state.budget])
