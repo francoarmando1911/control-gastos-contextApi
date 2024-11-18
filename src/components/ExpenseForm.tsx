@@ -16,7 +16,7 @@ export default function ExpenseForm() {
         date: new Date()
     })
 
-    const handleChangeDate = (value : Value) => {
+    const handleChangeDate = (value: Value) => {
         setExpense({
             ...expense,
             date: value
@@ -24,14 +24,14 @@ export default function ExpenseForm() {
     }
 
     const [error, setError] = useState('')
-    const {dispatch} = useBudget()
+    const { dispatch } = useBudget()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
         const isAmountField = ['amount'].includes(name)
         setExpense({
             ...expense,
-            [name] : isAmountField ? +value : value
+            [name]: isAmountField ? +value : value
         })
     }
 
@@ -39,19 +39,19 @@ export default function ExpenseForm() {
         e.preventDefault()
 
         //validar
-        if(Object.values(expense).includes('')){
+        if (Object.values(expense).includes('')) {
             setError('Todos los puntos son obligatorios')
             return
         }
 
         //Agregar un nuevo gasto
-        dispatch({type: 'add-expense', payload: {expense}})
+        dispatch({ type: 'add-expense', payload: { expense } })
 
         //Reiniciar el state
         setExpense({
             amount: 0,
             expenseName: '',
-            category:'',
+            category: '',
             date: new Date()
         })
     }
@@ -60,7 +60,7 @@ export default function ExpenseForm() {
         <form className="space-y-5" onSubmit={handleSubmit}>
             <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">Nuevo gasto</legend>
 
-            {error && <ErrorMessage>{error}</ErrorMessage> }
+            {error && <ErrorMessage>{error}</ErrorMessage>}
 
             <div className="flex flex-col gap-2">
                 <label
@@ -97,10 +97,10 @@ export default function ExpenseForm() {
             <div className="flex flex-col gap-2">
                 <label
                     htmlFor="category"
-                    className="text-xl" 
+                    className="text-xl"
                 >Categoria</label>
                 <select
-                    
+
                     id="category"
                     className="bg-slate-100 p-2"
                     name="category"
