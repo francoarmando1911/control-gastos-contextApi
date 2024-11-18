@@ -1,5 +1,7 @@
 import { categories } from "../data/categories";
 import DatePicker from 'react-date-picker';
+import 'react-calendar/dist/Calendar.css'
+import 'react-date-picker/dist/DatePicker.css'
 
 export default function ExpenseForm() {
     return (
@@ -42,7 +44,6 @@ export default function ExpenseForm() {
                 <select
                     
                     id="category"
-                    placeholder="Ingrese la cantidad del gasto ej. 1500: "
                     className="bg-slate-100 p-2"
                     name="category"
                 >
