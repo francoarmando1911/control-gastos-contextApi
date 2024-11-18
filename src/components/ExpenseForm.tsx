@@ -29,6 +29,7 @@ export default function ExpenseForm() {
                     placeholder="Añade el nombre del gasto: "
                     className="bg-slate-100 p-2"
                     name="expenseName"
+                    value={expense.expenseName}
                 />
             </div>
 
@@ -43,19 +44,21 @@ export default function ExpenseForm() {
                     placeholder="Ingrese la cantidad del gasto ej. 1500: "
                     className="bg-slate-100 p-2"
                     name="amount"
+                    value={expense.amount}
                 />
             </div>
 
             <div className="flex flex-col gap-2">
                 <label
                     htmlFor="category"
-                    className="text-xl"
+                    className="text-xl" 
                 >Categoria</label>
                 <select
                     
                     id="category"
                     className="bg-slate-100 p-2"
                     name="category"
+                    value={expense.category}
                 >
                     <option value="">-- Seleccione --</option>
                     {categories.map(category => (
@@ -75,6 +78,7 @@ export default function ExpenseForm() {
                 >Fecha gasto:</label>
                 <DatePicker
                     className="bg-slate-100 p-2 border-0"
+                    value={expense.date}
                 />
             </div>
 
