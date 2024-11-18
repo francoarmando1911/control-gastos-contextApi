@@ -16,8 +16,6 @@ export const BudgetProvider = ({children}: BudgetProvderProps) => {
 
     const [state, dispatch] = useReducer(budgetReducer, initialState)
 
-
-
     return(
         <BudgetContext.Provider
             value={{
