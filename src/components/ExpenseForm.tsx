@@ -4,6 +4,7 @@ import { ChangeEvent, useState } from "react";
 import DatePicker from 'react-date-picker';
 import 'react-calendar/dist/Calendar.css'
 import 'react-date-picker/dist/DatePicker.css'
+import ErrorMessage from "./ErrorMessage";
 
 export default function ExpenseForm() {
 
@@ -21,6 +22,8 @@ export default function ExpenseForm() {
         })
     }
 
+    const [error, setError] = useState('')
+
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
         const isAmountField = ['amount'].includes(name)
@@ -30,9 +33,22 @@ export default function ExpenseForm() {
         })
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        //validar
+        if(Object.values(expense).includes('')){
+            setError('Todos los puntos son obligatorios')
+            return
+        }
+
+    }
+
     return (
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
             <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">Nuevo gasto</legend>
+
+            {error && <ErrorMessage>{error}</ErrorMessage> }
 
             <div className="flex flex-col gap-2">
                 <label
