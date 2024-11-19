@@ -28,6 +28,7 @@ export default function ExpenseDetail({ expense }: ExpenseDetailProps) {
     <TrailingActions>
       <SwipeAction
         onClick={() => { }}
+        destructive={true}
       >
         Eliminar
       </SwipeAction>
