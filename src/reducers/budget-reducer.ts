@@ -89,7 +89,8 @@ export const budgetReducer = (
     if (action.type === 'update-expense') {
         return {
             ...state,
-            expenses: state.expenses.map(expense => expense.id === action.payload.expense.id ? action.payload.expense : expense)
+            expenses: state.expenses.map(expense => expense.id === action.payload.expense.id ? action.payload.expense : expense),
+            modal: false
             
         }
     }
