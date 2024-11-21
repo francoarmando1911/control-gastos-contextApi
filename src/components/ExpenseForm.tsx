@@ -51,7 +51,6 @@ export default function ExpenseForm() {
             setError('Todos los puntos son obligatorios')
             return
         }
-
         //Agregar un nuevo gasto
         dispatch({ type: 'add-expense', payload: { expense } })
 
