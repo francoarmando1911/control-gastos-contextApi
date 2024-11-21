@@ -80,7 +80,8 @@ export const budgetReducer = (
     if (action.type === 'get-expense-by-id') {
         return {
             ...state,
-            editingId: action.payload.id
+            editingId: action.payload.id,
+            modal: true
         }
     }
 
