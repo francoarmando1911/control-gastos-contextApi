@@ -26,7 +26,7 @@ export default function BudgetForm(){
     return(
         <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="flex flex-col space-y-5">
-                <label htmlFor="budget" style={{ color: 'rgb(120, 0, 0)' }} className="text-4xl font-bold text-center">
+                <label htmlFor="budget" style={{ color: 'rgb(95, 15, 64)' }} className="text-4xl font-bold text-center">
                     Definir presupuesto
                 </label>
                 <input

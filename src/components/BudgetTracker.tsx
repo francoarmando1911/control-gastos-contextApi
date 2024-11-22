@@ -9,10 +9,13 @@ export default function BudgetTracker() {
 
         <div className="flex flex-col justify-center items-center gap-8">
             <button
-                type="button"
-                className="bg-pink-600 w-full p-2 text-white uppercase font-bold rounded-lg"
+              type="button"
+              className="w-full p-2 text-white uppercase font-bold rounded-lg"
+              style={{
+                backgroundColor: 'rgb(95, 15, 64)',
+              }}
             >
-                Resetear app
+              Resetear app
             </button>
 
             <AmountDisplay
