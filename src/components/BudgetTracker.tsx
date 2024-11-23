@@ -8,6 +8,8 @@ export default function BudgetTracker() {
 
   const totalExpenses = useMemo(() => state.expenses.reduce((total, expense) => expense.amount + total, 0),[state.expenses])
 
+  const remainingBudget = state.budget - totalExpenses
+  
   return (
     <div className="grid grid-cols-1 md:grids-cols-2 gap-5">
         <div className="flex justify-center">
@@ -37,7 +39,7 @@ export default function BudgetTracker() {
 
             <AmountDisplay
               label="Gastado"
-              amount={100}
+              amount={totalExpenses}
             />
 
 
