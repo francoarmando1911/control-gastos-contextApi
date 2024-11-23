@@ -1,14 +1,27 @@
 import { useBudget } from "../hooks/useBudget";
 import AmountDisplay from "./AmountDisplay";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css"
 
 export default function BudgetTracker() {
 
   const { state, totalExpenses, remainingBudget } = useBudget()
 
+  const perecentage = +((totalExpenses/state.budget) * 100).toFixed(2)
+
   return (
     <div className="grid grid-cols-1 md:grids-cols-2 gap-5">
         <div className="flex justify-center">
-            <img src="/grafico.jpg" alt="Grafica de gastos" />
+            <CircularProgressbar
+              value={perecentage}
+              styles={buildStyles({
+                pathColor: perecentage === 100 ? 'DC2626' : '3b82f6',
+                trailColor: '#F5F5F5',
+                textSize: 8,
+                textColor: '#3b82f6'
+              })}
+              text={`${perecentage}% Gastado`}
+            />
         </div>
 
         <div className="flex flex-col justify-center items-center gap-8">
