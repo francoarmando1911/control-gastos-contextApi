@@ -24,7 +24,7 @@ export default function ExpenseForm() {
     }
 
     const [error, setError] = useState('')
-    const { dispatch, state } = useBudget()
+    const { dispatch, state, remainingBudget } = useBudget()
 
     useEffect (() => {
         if(state.editingId){
@@ -51,6 +51,13 @@ export default function ExpenseForm() {
             setError('Todos los puntos son obligatorios')
             return
         }
+
+        //validar que no me pase del limite
+        if (expense.amount > remainingBudget) {
+            setError('Ese gasto se sale del presupuesto')
+            return
+        }
+
         //Agregar o actualizar gasto
         if(state.editingId){
             dispatch({type: 'update-expense', payload: {expense: {id: state.editingId, ...expense}}})
