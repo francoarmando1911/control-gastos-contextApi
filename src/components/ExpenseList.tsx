@@ -8,6 +8,8 @@ export default function ExpenseList() {
 
     const isEmpty = useMemo(() => state.expenses.length === 0, [state.expenses])
 
+    const filterExpense = state.currentCategory ? state.expenses.filter(expense => expense.category === state.currentCategory): state.expenses
+    
   return (
     <div className="mt-10">
         {isEmpty ? <p className="text-gray-600 text-2xl font-bold">No hay gastos</p> : (
