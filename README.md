@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Gestor de Gastos
 
-Currently, two official plugins are available:
+Una aplicación web diseñada para gestionar tus gastos de manera eficiente. Este proyecto utiliza tecnologías modernas como **React**, **TypeScript** y **Tailwind CSS**, junto con diversas herramientas y patrones para garantizar una experiencia de usuario fluida y un código bien estructurado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+- **React**: Para la construcción de la interfaz de usuario.
+- **TypeScript**: Para garantizar un desarrollo más seguro y estructurado.
+- **Tailwind CSS**: Para el diseño y la creación de estilos de manera eficiente.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Características del Proyecto
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Estado Global con Context API
+La aplicación implementa por primera vez el **Context API** junto con el hook `useContext` para manejar un estado global, permitiendo compartir datos entre componentes de forma sencilla.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 2. Reducers y Helpers
+Se utilizan reducers para manejar la lógica del estado de manera centralizada y helpers para optimizar funciones repetitivas o específicas.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3. Custom Hook: useBudget
+Un hook personalizado llamado `useBudget` permite encapsular la lógica relacionada con el presupuesto, facilitando su reutilización en diferentes partes de la aplicación.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 4. Manejo de Fechas
+Se utilizan las bibliotecas **react-date-picker** y **react-calendar** para gestionar la selección y visualización de fechas, mejorando la experiencia de usuario al manejar datos relacionados con el tiempo.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 5. Almacenamiento Local
+El uso del **localStorage** permite guardar los datos de gastos de forma persistente, asegurando que los datos no se pierdan al recargar la página.
+
+### 6. Swipeable List
+Con la ayuda de **react-swipeable-list**, se ha implementado un efecto de barrido en los botones de **editar** y **eliminar**, proporcionando una experiencia de usuario moderna e intuitiva.
+
